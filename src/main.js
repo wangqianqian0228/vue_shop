@@ -6,11 +6,13 @@ import router from './router'
 import '../src/assets/css/reset.css'
 import {Form,
  FormItem,
- Input
+ Input,
+ Button
 } from 'element-ui'
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
+Vue.use(Button)
 
 Vue.config.productionTip = false
 
