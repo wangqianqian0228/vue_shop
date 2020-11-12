@@ -1,6 +1,8 @@
 <!--  -->
 <template>
-  <div></div>
+  <div>
+       <el-button type="primary" @click='loginout'>退出</el-button>
+  </div>
 </template>
 
 <script>
@@ -16,7 +18,13 @@ export default {
 
   mounted() {},
 
-  methods: {}
+  methods: {
+    //   点击退出
+      loginout(){
+              window.sessionStorage.clear()
+              this.$router.push('/login')
+      }
+  }
 }
 
 </script>

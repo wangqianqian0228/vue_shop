@@ -54,7 +54,8 @@ export default {
 
   computed: {},
 
-  mounted() {},
+  mounted() {
+  },
 
   methods: {
     // 点击登录
@@ -81,7 +82,8 @@ export default {
         )
         // 登录成功，存储token
         window.sessionStorage.setItem('token',result.data.token)
-        this.$router.push('/home')       
+        this.$router.push('/home')  
+
       })
 
     },
