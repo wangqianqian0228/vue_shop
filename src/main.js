@@ -8,7 +8,8 @@ import axios from 'axios'
 import {Form,
  FormItem,
  Input,
- Button
+ Button,
+ Message
 } from 'element-ui'
 Vue.use(Form)
 Vue.use(FormItem)
@@ -18,6 +19,7 @@ Vue.use(Button)
 Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
 Vue.prototype.$http = axios
+Vue.prototype.$message = Message
 
 /* eslint-disable no-new */
 new Vue({

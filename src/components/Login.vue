@@ -60,15 +60,28 @@ export default {
     // 点击登录
     login() {
       // 登录之前对整个表单进行校验
-      this.$refs.loginFormRef.validate(async (res)=>{
+      this.$refs.loginFormRef.validate(async (valid)=>{
       // res表示是否验证成功
       // 校验成功发请求，需要配置axios
-         if(!res){
+         if(!valid){
             return
          }
-        const result = await this.$http.post('login',this.loginform)
+        const {data:result} = await this.$http.post('login',this.loginform)
         console.log(result)
-            
+        console.log(result.meta.status)
+        if(result.meta.status!==200){
+          this.$message(result.meta.msg)
+          return
+        }
+        this.$message(
+          {
+            message:result.meta.msg,
+            type:'success'
+          }
+        )
+        // 登录成功，存储token
+        window.sessionStorage.setItem('token',result.data.token)
+        this.$router.push('/home')       
       })
 
     },
