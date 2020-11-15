@@ -9,15 +9,36 @@ import {Form,
  FormItem,
  Input,
  Button,
- Message
+ Message,
+ Container,
+ Header,
+ Aside,
+ Main,
+ Submenu,
+ MenuItemGroup,
+ MenuItem,
+ Menu
 } from 'element-ui'
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)
 Vue.use(Button)
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
+Vue.use(Main)
+Vue.use(Submenu)
+Vue.use(MenuItemGroup)
+Vue.use(MenuItem)
+Vue.use(Menu)
 
 Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
+// 配置请求头
+axios.interceptors.request.use((config)=>{
+   config.headers.Authorization = window.sessionStorage.getItem('token')
+   return config
+})
 Vue.prototype.$http = axios
 Vue.prototype.$message = Message
 
